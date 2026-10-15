@@ -21,7 +21,7 @@
 		"light": "One Light",
 		"dark": "One Dark - Darkened" // github.com/pavles6/one-dark-darkened
 	},
-	"icon_theme": "Catppuccin Mocha", // github.com/catppuccin/zed-icons
+	"icon_theme": "Colored Zed Icons Theme Dark", // github.com/catppuccin/zed-icons
 
 	// Editor
 	"buffer_font_family": "Iosevka Nerd Font", // nerdfonts.com/font-downloads#:~:text=Iosevka
@@ -31,10 +31,19 @@
 	"hard_tabs": true,
 	"tab_size": 4,
 
+	// Preview
+	"markdown_preview": {
+		"font_size": 15
+	},
+
 	// Programming Languages
 	"languages": {
 		"HTML": {
 			"language_servers": ["superhtml"]
+		},
+		"Jinja2": {
+			"auto_indent": "none",
+			"language_servers": ["jinja-lsp"]
 		},
 		"Luau": {
 			"language_servers": ["luau-lsp"]
@@ -47,6 +56,22 @@
 
 	// Language Servers
 	"lsp": {
+		"jinja-lsp": {
+			"initialization_options": {
+				"extensions": ["jinja", "jinja2", "j2"],
+				"extras": ["flask"],
+				"templates": ["templates"]
+			}
+		},
+		"luau-lsp": {
+			"settings": {
+				"luau-lsp": {
+					"types": {
+						"definitionFiles": [".poly/luau/def.d.luau"] // Polytoria
+					}
+				}
+			}
+		},
 		"pylsp": {
 			"settings": {
 				"plugins": {
@@ -66,15 +91,6 @@
 				"workspace": {
 					"venvPath": ".",
 					"venv": ".venv"
-				}
-			}
-		},
-		"luau-lsp": {
-			"settings": {
-				"luau-lsp": {
-					"types": {
-						"definitionFiles": [".poly/luau/def.d.luau"] // Polytoria
-					}
 				}
 			}
 		}
